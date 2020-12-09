@@ -20,7 +20,7 @@ class Layout extends React.Component {
                         <ul>
                             <li>
                             <a href="/page">Go Home</a><br/>
-                            <a href="/page/new">Create A New Fruit</a>
+                            <a href="/page/new">Add A New Project</a>
                             </li>
                         </ul>
                     </nav>

@@ -11,6 +11,7 @@ const app = express ();
 const db = mongoose.connection;
 const show = console.log;
 show('im cool')
+const Items = require('./models/items.js')
 //___________________
 //Port
 //___________________
@@ -36,6 +37,9 @@ db.on('open' , ()=>{});
 //___________________
 //Middleware
 //___________________
+app.set('view engine', 'jsx');
+app.engine('jsx', require('express-react-views').createEngine());
+
 
 //use public folder for static assets
 app.use(express.static('public'));
@@ -55,6 +59,99 @@ app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 app.get('/' , (req, res) => {
   res.send('Hello World!');
 });
+
+//INDEX
+app.get('/page', (req, res) => {
+    Items.findById(req.params.id, (err, foundItem) => {
+        if(!err){
+            res.render('Index', {
+                item: foundItem
+            })
+        } else {
+            res.send(err);
+        }
+    })
+})
+
+
+//NEW
+app.get('/page/New', (req, res) =>{
+    res.render('New');
+})
+
+//DELETE
+app.delete('/page/:id', (req, res) =>{
+    Items.findByIdAndRemove(req.params.id, (err, foundItem) =>{
+        if(!err){
+            res.redirect('/page')
+        } else {
+            res.send(err);
+        }
+    })
+})
+
+
+//UPDATE
+app.put('/page/:id', (req, res) =>{
+    req.body.isComplete = req.body.isComplete === 'on' ? true:false;
+    Items.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updatedItem) => {
+        if(!err){
+            res.redirect('/page')
+        } else {
+            res.send(err);
+        }
+    
+    })
+})
+
+
+//CREATE
+app.get('/page/New', (req, res) =>{
+    if(req.body.isComplete === 'on'){
+        req.body.isComplete = true
+    } else {
+        req.body.isComplete = false
+    }
+    Items.create(req.body, (err, createdItem) => {
+        if(!err){
+            res.redirect('/page')
+        } else {
+            res.send(err);
+        }
+    })
+})
+
+
+//EDIT
+app.get('/page/:id/edit', (req, res) =>{
+    Items.findById(req.params.id, (err, foundItem) =>{
+        if(!err) {
+            res.render('Edit', {
+                item: foundItem
+            })
+        } else {
+            res.send(err);
+        }
+    })
+})
+
+
+
+//SHOW
+app.get('/page/:id', (req, res) =>{
+    Items.findById(req.params.id, (err, foundItem) => {
+        if(!err){
+            res.render('Show', {
+                item: foundItem
+            })
+        } else {
+            res.send(err);
+        }
+    })
+})
+
+
+
 
 //___________________
 //Listener
