@@ -150,7 +150,9 @@ app.get('/page/:id', (req, res) =>{
     })
 })
 
-
+app.get('/page/contact', (req, res) => {
+    res.render("Contact");
+})
 
 
 //___________________

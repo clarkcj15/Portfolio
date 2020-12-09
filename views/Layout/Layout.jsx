@@ -21,6 +21,7 @@ class Layout extends React.Component {
                             <li>
                             <a href="/page">Go Home</a><br/>
                             <a href="/page/new">Add A New Project</a>
+                            <a href="/page/contact">Contact Me</a>
                             </li>
                         </ul>
                     </nav>
