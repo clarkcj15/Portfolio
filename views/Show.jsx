@@ -12,7 +12,7 @@ class Show extends React.Component{
                 <p>{item.description}</p>
                 <p><iframe src={item.link} width='700px' height='500px' ></iframe></p>
 
-                <a href={`/page/${item._id}/edit`}>Edit Project</a>
+                <a href={`/${item._id}/edit`}>Edit Project</a>
             </Layout>
         )
     }

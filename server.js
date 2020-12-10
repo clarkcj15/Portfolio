@@ -69,7 +69,7 @@ app.get('/contact', (req, res) =>{
 
 
 //INDEX
-app.get('/page', (req, res) => {
+app.get('/', (req, res) => {
     Items.find({}, (err, foundItems) => {
         if(!err){
             res.render('Index', {
@@ -83,15 +83,15 @@ app.get('/page', (req, res) => {
 
 
 //NEW
-app.get('/page/New', (req, res) =>{
+app.get('/New', (req, res) =>{
     res.render('New');
 })
 
 //DELETE
-app.delete('/page/:id', (req, res) =>{
+app.delete('/:id', (req, res) =>{
     Items.findByIdAndRemove(req.params.id, (err, foundItem) =>{
         if(!err){
-            res.redirect('/page')
+            res.redirect('/')
         } else {
             res.send(err);
         }
@@ -100,11 +100,11 @@ app.delete('/page/:id', (req, res) =>{
 
 
 //UPDATE
-app.put('/page/:id', (req, res) =>{
+app.put('/:id', (req, res) =>{
     req.body.isComplete = req.body.isComplete === 'on' ? true:false;
     Items.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updatedItem) => {
         if(!err){
-            res.redirect('/page')
+            res.redirect('/')
         } else {
             res.send(err);
         }
@@ -114,7 +114,7 @@ app.put('/page/:id', (req, res) =>{
 
 
 //CREATE
-app.post('/page', (req, res) =>{
+app.post('/', (req, res) =>{
     if(req.body.isComplete === 'on'){
         req.body.isComplete = true
     } else {
@@ -122,7 +122,7 @@ app.post('/page', (req, res) =>{
     }
     Items.create(req.body, (err, createdItem) => {
         if(!err){
-            res.redirect('/page/Index')
+            res.redirect('/')
         } else {
             res.send(err);
         }
@@ -131,7 +131,7 @@ app.post('/page', (req, res) =>{
 
 
 //EDIT
-app.get('/page/:id/edit', (req, res) =>{
+app.get('/:id/edit', (req, res) =>{
     Items.findById(req.params.id, (err, foundItem) =>{
         if(!err) {
             res.render('Edit', {
@@ -146,7 +146,7 @@ app.get('/page/:id/edit', (req, res) =>{
 
 
 //SHOW
-app.get('/page/:id', (req, res) =>{
+app.get('/:id/show', (req, res) =>{
     Items.findById(req.params.id, (err, foundItem) => {
         if(!err){
             res.render('Show', {
