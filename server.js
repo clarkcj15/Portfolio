@@ -56,16 +56,24 @@ app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 // Routes
 //___________________
 //localhost:3000 
-app.get('/' , (req, res) => {
-  res.send('Hello World!');
-});
+// app.get('/' , (req, res) => {
+//     res.send('Hello World!');
+// });
+app.get('/aboutme', (req, res) =>{
+    res.render('Aboutme');
+})
+
+app.get('/contact', (req, res) =>{
+    res.render("Contact");
+})
+
 
 //INDEX
 app.get('/page', (req, res) => {
-    Items.findById(req.params.id, (err, foundItem) => {
+    Items.find({}, (err, foundItems) => {
         if(!err){
             res.render('Index', {
-                item: foundItem
+                items: foundItems
             })
         } else {
             res.send(err);
@@ -106,7 +114,7 @@ app.put('/page/:id', (req, res) =>{
 
 
 //CREATE
-app.get('/page/New', (req, res) =>{
+app.post('/page', (req, res) =>{
     if(req.body.isComplete === 'on'){
         req.body.isComplete = true
     } else {
@@ -114,7 +122,7 @@ app.get('/page/New', (req, res) =>{
     }
     Items.create(req.body, (err, createdItem) => {
         if(!err){
-            res.redirect('/page')
+            res.redirect('/page/Index')
         } else {
             res.send(err);
         }
@@ -150,9 +158,6 @@ app.get('/page/:id', (req, res) =>{
     })
 })
 
-app.get('/page/contact', (req, res) => {
-    res.render("Contact");
-})
 
 
 //___________________

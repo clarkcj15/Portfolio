@@ -1,14 +1,18 @@
 const React = require('react');
+const items = require('../models/items.js');
 const Layout = require('./Layout/Layout.jsx');
 class Show extends React.Component{
     render() {
-        console.log(this.props.items);
+        const item = this.props.item;
         return (
             <Layout
-            title={`${item._id} Show Page`}
-             stylesheet="/css/show.css"
-             js="/server.js">
+            title={`${item.title}`}
+             stylesheet="/css/show.css">
+                {/* <h1>{item.title}</h1> */}
+                <p>{item.description}</p>
+                <p><iframe src={item.link} width='700px' height='500px' ></iframe></p>
 
+                <a href={`/page/${item._id}/edit`}>Edit Project</a>
             </Layout>
         )
     }

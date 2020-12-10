@@ -16,14 +16,10 @@ class Layout extends React.Component {
                     <script scr="/server.js"></script>
                 </body>
                 <footer>
-                    <nav>
-                        <ul>
-                            <li>
-                            <a href="/page">Go Home</a><br/>
+                    <nav id="nav-tag">
+                            <a href="/page">Go Home</a>
                             <a href="/page/new">Add A New Project</a>
-                            <a href="/page/contact">Contact Me</a>
-                            </li>
-                        </ul>
+                            <a href="/contact">Contact Me</a>
                     </nav>
                 </footer>
             </html>
