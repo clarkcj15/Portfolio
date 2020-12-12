@@ -7,7 +7,7 @@ class Edit extends React.Component{
             <Layout
             title={`${title} Edit Page`}
              stylesheet="/css/edit.css">
-                 <form action={`/page/${_id}?_method=PUT`} method="POST">
+                 <form action={`/${_id}?_method=PUT`} method="POST">
                  Project Title: <input type="text" name="title" value={title}/><br/>
                      Link to Project: <input type="text" name="link" value={link}/><br/>
                      Image: <input type="text" name="img" value={img}/><br/>

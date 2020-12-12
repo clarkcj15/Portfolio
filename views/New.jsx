@@ -8,7 +8,7 @@ class New extends React.Component{
             title={`New Project Page`}
              stylesheet="/css/new.css">
 
-                 <form action="/page" method="POST">
+                 <form action="/" method="POST">
                      Project Title: <input type="text" name="title" id=""/><br/>
                      Link to Project: <input type="text" name="link" id=""/><br/>
                      Image: <input type="text" name="img" id=""/><br/>
