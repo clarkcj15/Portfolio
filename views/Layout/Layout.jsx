@@ -18,7 +18,7 @@ class Layout extends React.Component {
                 <footer>
                     <nav id="nav-tag">
                             <a href="/">Go Home</a>
-                            <a href="/new">Add A New Project</a>
+                            {/* <a href="/new">Add A New Project</a> */}
                             <a href="/contact">Contact Me</a>
                     </nav>
                 </footer>
