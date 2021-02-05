@@ -5,7 +5,7 @@ class Aboutme extends React.Component{
         // console.log(this.props.items);
         return (
             <Layout
-            title={`About CJ Clark - Web Developer`}
+            title={`About CJ Parnell - Web Developer`}
              stylesheet="/css/contact.css">
                 <h3><a href={'/contact'}>Contact Me</a></h3>
 
