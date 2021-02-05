@@ -12,7 +12,6 @@ class Index extends React.Component{
                     this.props.items.map((item, index) => {
                         return(
                             <li>
-                            <h2><a href={'/aboutme'}>Learn More About CJ Clark - Web Developer</a></h2>
                             <p id='name'><a href={`/${item._id}/show`}>{item.title}</a></p>
                             <p><img src={item.img} alt="" width="800px" height="500px"/></p>
                             <p>{item.description}</p>

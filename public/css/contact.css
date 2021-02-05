@@ -1,3 +1,30 @@
 *{
     background-color: #ACAEA1;
 }
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+
+}
+input {
+    background-color: whitesmoke;
+    max-width: 100px;
+
+}
+input#firstandlastname {
+    background-color: whitesmoke;
+    max-width: 250px;
+}
+
+input#email {
+    background-color: whitesmoke;
+    max-width: 250px;
+}
+
+input#message {
+    background-color: whitesmoke;
+    max-width: 250px;
+    margin-bottom: 15px;
+}

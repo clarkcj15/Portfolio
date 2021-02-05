@@ -8,10 +8,9 @@ class Show extends React.Component{
             <Layout
             title={`${item.title}`}
              stylesheet="/css/show.css">
-                {/* <h1>{item.title}</h1> */}
                 <p>{item.description}</p>
                 <p><iframe src={item.link} width='700px' height='500px' ></iframe></p>
-                <a href={`/${item._id}/edit`}>Edit Project</a>
+                {/* <a href={`/${item._id}/edit`}>Edit Project</a> */}
             </Layout>
         )
     }

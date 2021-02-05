@@ -10,13 +10,13 @@ const mongoose = require ('mongoose');
 const app = express ();
 const db = mongoose.connection;
 const show = console.log;
-show('im cool')
+show('running')
 const Items = require('./models/items.js')
 //___________________
 //Port
 //___________________
 // Allow use of Heroku's port or your own local port, depending on the environment
-const PORT = process.env.PORT || 3000; //Heroku
+const PORT = process.env.PORT || 3001; //Heroku
 
 //___________________
 //Database
@@ -59,17 +59,7 @@ app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 // app.get('/' , (req, res) => {
 //     res.send('Hello World!');
 // });
-app.get('/aboutme', (req, res) =>{
-    res.render('Aboutme');
-})
-
-app.get('/contact', (req, res) =>{
-    res.render("Contact");
-})
-
-
-//INDEX
-app.get('/', (req, res) => {
+app.get('/show', (req, res) =>{
     Items.find({}, (err, foundItems) => {
         if(!err){
             res.render('Index', {
@@ -79,6 +69,16 @@ app.get('/', (req, res) => {
             res.send(err);
         }
     })
+})
+
+app.get('/contact', (req, res) =>{
+    res.render("Contact");
+})
+
+
+//INDEX
+app.get('/', (req, res) => {
+    res.render('Aboutme')
 })
 
 
