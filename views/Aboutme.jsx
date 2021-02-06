@@ -16,7 +16,7 @@ class Aboutme extends React.Component{
                 My focus in all of my work is understanding the "why" and "how". Tinkering is what I do; whether I am working on an app, <br/>
                 designing and building something new for my home, or playing Dungeons and Dragons, I love to get my hands dirty in the inner <br/>
                 workings of everything. I have a penchant for new challenges and team work. Evey time I face any adversity I see it as a teachable <br/>
-                moment rather than a burden to overcome. <br/>
+                moment rather than a burden to overcome. Pronouns (They/Them)<br/>
 
                 Check out some of my past projects in my <a href={'/show'}>Project Directory</a>.
                 </p>
