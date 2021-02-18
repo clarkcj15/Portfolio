@@ -19,6 +19,8 @@ class Aboutme extends React.Component{
                 moment rather than a burden to overcome. Pronouns (They/Them)<br/>
 
                 Check out some of my past projects in my <a href={'/show'}>Project Directory</a>.
+                <p>Find me on <a href="http://linkedin.com/in/cj-clark-parnell-1b859a43/">LinkedIn</a>!</p>
+                <p>Take a look at my <a href="http://github.com/clarkcj15">GitHub</a>!</p>
                 </p>
                 
                 <img src="https://res.cloudinary.com/dwpxepy1m/image/upload/v1607565467/IMG_7809_jfmabh.jpg" alt="" width="620px" height="450px"/>
